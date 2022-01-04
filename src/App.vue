@@ -20,7 +20,7 @@ export default {
     },
   },
   created() {
-    this.$store.dispatch('setLang', localStorage.getItem('lang'))
+    this.$store.dispatch('setLang', (localStorage.getItem('lang') || 'en'))
   }
 };
 </script>

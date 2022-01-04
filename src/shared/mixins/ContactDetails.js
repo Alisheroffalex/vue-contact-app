@@ -1,13 +1,13 @@
 export default {
   methods: {
-    // async toggleTrash(id) {
-    //   const comingStatus = await this.$store.dispatch('contacts/toggleStatus', id)
-    //   this.currentContact.status = comingStatus;
-    //   if (comingStatus === 'published') 
-    //     this.$success(this.$t('msg.contactRestored'))
-    //   else 
-    //     this.$error(this.$t('msg.contactInTrash'))
-    // },
+    async toggleTrash(id) {
+      const comingStatus = await this.$store.dispatch('contacts/toggleStatus', id)
+      this.currentContact.status = comingStatus;
+      if (comingStatus === 'published') 
+        this.$success(this.$t('msg.contactRestored'))
+      else 
+        this.$error(this.$t('msg.contactInTrash'))
+    },
     async deleteContact(id) {
       await this.$store.dispatch('contacts/deleteContact', id)
       this.$error(this.$t('msg.contactDeleted'))

@@ -15,7 +15,7 @@ export default {
   },
   mutations: {
     setLang(state, locale) {
-      state.lang = locale;  
+      state.lang = locale || 'en';  
     }
   },
   getters: {

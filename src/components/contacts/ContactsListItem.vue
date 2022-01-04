@@ -14,7 +14,7 @@
         <p>{{ job }}</p>
       </v-col>
       <v-col cols="3">
-        <span v-for="group in contactGroups" :key="group.id" class="group-span">{{ group.name }} <v-icon class="remove-group" icon @click.prevent="removeGroup(group.id)">mdi-close</v-icon></span>
+        <span v-for="group in groups" :key="group.id" class="group-span">{{ group.title }} <v-icon class="remove-group" icon @click.prevent="removeGroup(group.id)">mdi-close</v-icon></span>
       </v-col>
       <v-col>
         <v-btn @click.prevent="toggleFavorite(currentContact.id)" icon color="orange"><v-icon>{{ favIcon }}</v-icon></v-btn>
@@ -41,14 +41,6 @@ export default {
     trashColor() {
       return this.currentContact.status === 'published' ? 'red' : 'primary'
     },
-    contactGroups() {
-      const groupsArr = [];
-      this.groups.forEach(group => {
-        const gr = this.$store.getters['groups/getGroup'](group)
-        if (gr) groupsArr.push(gr)
-      })
-      return groupsArr;
-    }
   }
 }
 </script>
